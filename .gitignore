@@ -1,0 +1,11 @@
+# Saída do Maven (gerada no build, não vai para o Git)
+target/
+
+# Configurações do IntelliJ (pessoais de cada máquina)
+.idea/
+*.iml
+out/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
