@@ -1,7 +1,6 @@
 package br.com.ingressos.dominio;
 
 abstract public class Ingresso {
-
     private String codigo;
 
     private String nomeEvento;
@@ -37,9 +36,7 @@ abstract public class Ingresso {
     public abstract double calcularPreco();
 
     public String descricao() {
-
         return "[" + codigo + "] " + nomeEvento + " - " + setor + " - R$ " + calcularPreco();
-
     }
 
 }
