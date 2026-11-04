@@ -14,13 +14,13 @@ public class Main {
         Ingresso vct = new IngressoMeia("V07", "VCT Champions", "Arquibancada", 180.0, "Carteirinha UNE 12345");
         Ingresso cblol = new IngressoVip("C12", "CBLOL - Final", "Camarote", 250.0, 150.0, "Lounge exclusivo + camisa oficial");
 
-        List<Ingresso> eventos = new ArrayList<>();
+        List<Ingresso> ingressos = new ArrayList<>();
 
-        eventos.add(worlds);
-        eventos.add(vct);
-        eventos.add(cblol);
+        ingressos.add(worlds);
+        ingressos.add(vct);
+        ingressos.add(cblol);
 
-        for (Ingresso i : eventos) {
+        for (Ingresso i : ingressos) {
             System.out.println(i.descricao());
         }
     }

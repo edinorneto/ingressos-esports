@@ -1,6 +1,6 @@
 package br.com.ingressos.dominio;
 
-abstract public class Ingresso {
+public abstract class Ingresso {
     private String codigo;
 
     private String nomeEvento;
@@ -14,7 +14,6 @@ abstract public class Ingresso {
         this.nomeEvento = nomeEvento;
         this.setor = setor;
         this.precoBase = precoBase;
-
     }
 
     public String getCodigo() {
