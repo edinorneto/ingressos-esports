@@ -1,8 +1,9 @@
 # Roadmap: Plataforma de ingressos para e-sports (Java + Spring Boot)
 
-Objetivo: projeto de portfólio que cubra o núcleo e os diferenciais das vagas
-de backend Java júnior. Regra: só entra no projeto código que eu consigo
-explicar sem olhar.
+Plataforma de venda de ingressos com foco nos problemas reais desse domínio:
+assento vendido uma única vez, reserva temporária, concorrência entre
+compradores, pagamento idempotente e regras legais (meia-entrada e
+direito de arrependimento).
 
 Decisões relevantes ficam registradas em [`docs/decisoes/`](decisoes/README.md)
 (contexto, escolha, alternativas, porquê). O README da Fase 5 usa esses
@@ -16,52 +17,49 @@ registros como estudo de caso.
 - **Reembolso:** integral até 7 dias após a compra, limitado ao início do
   evento (CDC, art. 49). Ver [decisão 0001](decisoes/0001-prazo-de-reembolso.md).
 
-## Fase 1: Java além do básico
-1. Herança completa: super, classes abstratas, interface x classe abstrata ✅
-2. enum (estados do assento: DISPONIVEL, RESERVADO, VENDIDO)
-3. Exceções próprias, checked e unchecked (AssentoIndisponivelException,
+## Fase 1: Domínio em memória (Java puro)
+1. Tipos de ingresso (inteira, meia, VIP) com hierarquia de classes ✅
+2. Estados do assento: DISPONIVEL, RESERVADO, VENDIDO (enum)
+3. Erros de negócio como exceções próprias (AssentoIndisponivelException,
    CotaMeiaEntradaEsgotadaException)
-4. equals e hashCode
-5. Map e Set (assentos por setor, ingressos sem duplicata)
-6. Comparator e ordenação
-7. Lambdas e Streams (filtrar eventos, agrupar assentos, somar vendas, contar
-   meias vendidas por evento)
-8. BigDecimal para dinheiro, e por que double não serve
-9. record e Optional
-10. Pacotes, Maven e JUnit 5
+4. Igualdade de entidades (equals e hashCode)
+5. Assentos por setor e ingressos sem duplicata (Map e Set)
+6. Listagens ordenadas e consultas (Comparator, Streams): eventos, assentos
+   livres, total vendido, meias vendidas por evento
+7. Dinheiro com BigDecimal
+8. Objetos de valor com record e retornos com Optional
+9. Build com Maven e testes com JUnit 5
 
-Pronto quando: escrevo sem IA um programa em memória que lista eventos,
-reserva assentos, impede reserva duplicada, respeita a cota de 40% de
-meia-entrada e tem testes.
+Pronto quando: um programa em memória lista eventos, reserva assentos,
+impede reserva duplicada, respeita a cota de 40% de meia-entrada e tem
+testes.
 
 ## Fase 2: Banco de dados e Docker
-1. Docker básico: imagem, container, docker compose
-2. PostgreSQL rodando em Docker
-3. Modelagem: eventos, setores, assentos, reservas, pedidos, pagamentos e
+1. PostgreSQL rodando em Docker (docker compose)
+2. Modelagem: eventos, setores, assentos, reservas, pedidos, pagamentos e
    ingressos (com tipo inteira/meia e CPF do comprador)
-4. Constraints: PK, FK, UNIQUE (um ingresso por assento por evento), CHECK
-5. Transações: o que garantem e quando usar
-6. JDBC puro, só para entender o que o JPA automatiza
+3. Constraints: PK, FK, UNIQUE (um ingresso por assento por evento), CHECK
+4. Transações nas operações críticas (reserva, venda, cancelamento)
+5. Acesso com JDBC puro, antes de adotar JPA
 
-Pronto quando: sei explicar cada constraint e o que uma transação garante.
+Pronto quando: o esquema garante as regras no banco (constraints) e as
+operações críticas rodam em transação.
 
 ## Fase 3: API com Spring Boot
 Cada funcionalidade em uma branch própria, com pull request revisado antes do
 merge.
 
-1. HTTP e REST: métodos, status, JSON
-2. Projeto pelo Spring Initializr; camadas controller, service, repository
-3. Injeção de dependência
-4. Spring Data JPA e migrações com Flyway
-5. CRUD de eventos e setores; listagem de assentos disponíveis
-6. Validação de entrada e tratamento centralizado de erros
-7. Swagger, Docker Compose com API e banco
-8. Testes de controller e service (JUnit, Mockito)
+1. API REST em camadas: controller, service, repository
+2. Spring Data JPA e migrações com Flyway
+3. CRUD de eventos e setores; listagem de assentos disponíveis
+4. Validação de entrada e tratamento centralizado de erros
+5. Swagger, Docker Compose com API e banco
+6. Testes de controller e service (JUnit, Mockito)
 
 Pronto quando: a API funciona de ponta a ponta, sobe com um comando e tem
 testes.
 
-## Fase 4: Os conceitos que destacam
+## Fase 4: Regras críticas de venda
 1. Reserva temporária: disponível → reservado → vendido, expirando em
    10 minutos com job agendado (@Scheduled). **O pagamento também verifica a
    expiração**: reserva vencida é recusada mesmo que o job ainda não tenha
@@ -76,13 +74,9 @@ testes.
 6. Histórico append-only de pedidos e pagamentos
 7. Testes de integração com Testcontainers
 
-Pronto quando: explico e demonstro com testes cada mecanismo.
+Pronto quando: cada mecanismo é demonstrado por testes.
 
-## Sessão extra: system design
-Depois da Fase 4: como um sistema de ingressos funciona em grande escala,
-comparando com o que construí.
-
-## Fase 5: Diferenciais
+## Fase 5: Segurança, escala e operação
 1. Spring Security com JWT: comprador e administrador
 2. Cache do mapa de assentos com Redis
 3. Mensageria: evento "ingresso emitido" com RabbitMQ
@@ -90,7 +84,7 @@ comparando com o que construí.
 5. Logs estruturados e Spring Actuator (health e métricas)
 6. README como estudo de caso, usando os registros de `docs/decisoes/`
 
-Pronto quando: o projeto está publicado e eu o apresento em 5 minutos.
+Pronto quando: o projeto está publicado e documentado.
 
 ## Final
 Deploy da aplicação em uma nuvem.
