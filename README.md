@@ -21,3 +21,7 @@ src/main/java/br/com/ingressos/          código da aplicação
 src/main/java/br/com/ingressos/dominio/  Evento, Setor, Assento, Reserva, Ingresso
 src/test/java/br/com/ingressos/          testes (JUnit 5)
 ```
+
+## Documentação
+- [Roadmap](docs/ROADMAP.md): fases do projeto e regras de negócio do MVP.
+- [Decisões](docs/decisoes/README.md): registro do porquê de cada escolha relevante.
