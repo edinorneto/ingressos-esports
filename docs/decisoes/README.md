@@ -1,19 +1,18 @@
 # Registro de decisões
 
-Cada decisão relevante do projeto vira um arquivo nesta pasta. O objetivo é
-conseguir responder, meses depois, "por que foi feito assim?" sem depender da
-memória. O README final (Fase 5) usa estes registros como estudo de caso.
+Decisões de arquitetura e de regra de negócio, no formato ADR (Architecture
+Decision Record). Cada arquivo explica o contexto, o que foi escolhido, o que
+foi descartado e por quê.
 
 ## Quando registrar
 - A escolha afeta regra de negócio, modelo de dados ou arquitetura.
 - Havia mais de uma opção razoável.
-- Alguém (você mesmo, numa entrevista) pode perguntar "por que não fez X?".
 
 ## Como registrar
 1. Copie `0000-modelo.md` para `NNNN-titulo-curto.md`, com o próximo número.
-2. Preencha as seções. Seja curto: uma página basta.
-3. Uma decisão nunca é apagada. Se mudar de ideia, crie um registro novo e
-   marque o antigo como "Substituída por NNNN".
+2. Preencha as seções. Uma página costuma bastar.
+3. Decisões não são apagadas. Se mudar, crie um registro novo e marque o
+   antigo como "Substituída por NNNN".
 
 ## Índice
 | Nº | Decisão | Status |

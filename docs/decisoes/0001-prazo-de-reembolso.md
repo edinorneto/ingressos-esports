@@ -2,12 +2,11 @@
 
 - **Status:** Aceita
 - **Data:** 2026-11-06
-- **Fase do plano:** Fase 4, tema 4 (cancelamento com reembolso)
 
 ## Contexto
-O plano previa "cancelamento com reembolso até X dias antes do evento", sem
-definir X. A venda é 100% online, então a contratação acontece fora do
-estabelecimento comercial e atrai o direito de arrependimento.
+O cancelamento com reembolso precisava de um prazo. A venda é 100% online,
+então a contratação acontece fora do estabelecimento comercial e atrai o
+direito de arrependimento.
 
 **Lei 8.078/1990 (CDC), art. 49:**
 > O consumidor pode desistir do contrato, no prazo de 7 dias a contar de sua
@@ -62,7 +61,7 @@ Fora desse prazo, não há reembolso voluntário no MVP. Ao cancelar, o assento
 volta para `DISPONIVEL`.
 
 ## Alternativas
-- **"Até X dias antes do evento" (regra original do plano):** ignora o art. 49.
+- **"Até X dias antes do evento" (prazo fixo antes do evento):** ignora o art. 49.
   Compra feita 30 dias antes ficaria sem os 7 dias de reflexão, e compra feita
   na véspera teria o direito suprimido por contrato.
 - **7 dias sempre, mesmo após o evento:** leitura literal extrema; o serviço já
@@ -75,11 +74,9 @@ volta para `DISPONIVEL`.
 
 ## Porquê
 - Cumpre o mínimo legal sem inventar exceção que a lei não prevê.
-- A regra cabe em uma linha de código e é fácil de testar (bom para a Fase 4:
+- A regra cabe em uma linha de código e é fácil de testar (na Fase 4:
   testes com datas na fronteira de 7 dias e no início do evento).
 - O ponto controverso (compra perto do evento) é resolvido do lado mais
   protetivo ao consumidor, que é o que um Procon cobraria.
 - **Custo:** o assento pode voltar à venda muito perto do evento e ficar vazio.
   Isso é risco do negócio, não do consumidor.
-
-> Este registro é uma decisão de projeto de portfólio, não um parecer jurídico.

@@ -1,6 +1,6 @@
 # Ingressos e-sports
 
-Plataforma de venda de ingressos para eventos de e-sports. Projeto de portfólio.
+Plataforma de venda de ingressos para eventos de e-sports.
 
 Regra central: **um assento só pode ser vendido uma vez.**
 

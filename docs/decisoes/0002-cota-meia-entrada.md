@@ -2,7 +2,6 @@
 
 - **Status:** Aceita
 - **Data:** 2026-11-09
-- **Fase do plano:** Fase 1 (regra no domínio), Fase 4 (concorrência)
 
 ## Contexto
 A Lei 12.933/2013 (art. 1º, § 10) garante meia-entrada em 40% do total de

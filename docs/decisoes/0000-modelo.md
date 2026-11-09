@@ -2,7 +2,6 @@
 
 - **Status:** Proposta | Aceita | Substituída por NNNN
 - **Data:** AAAA-MM-DD
-- **Fase do plano:** Fase X, tema Y
 
 ## Contexto
 Qual problema ou regra exige uma decisão? Que restrições existem (lei,

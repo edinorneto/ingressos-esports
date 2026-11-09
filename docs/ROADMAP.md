@@ -5,9 +5,7 @@ assento vendido uma única vez, reserva temporária, concorrência entre
 compradores, pagamento idempotente e regras legais (meia-entrada e
 direito de arrependimento).
 
-Decisões relevantes ficam registradas em [`docs/decisoes/`](decisoes/README.md)
-(contexto, escolha, alternativas, porquê). O README da Fase 5 usa esses
-registros como estudo de caso.
+Decisões relevantes ficam registradas em [`docs/decisoes/`](decisoes/README.md).
 
 ## Regras de negócio do MVP
 - Um assento só pode ser vendido uma vez.
@@ -46,9 +44,6 @@ Pronto quando: o esquema garante as regras no banco (constraints) e as
 operações críticas rodam em transação.
 
 ## Fase 3: API com Spring Boot
-Cada funcionalidade em uma branch própria, com pull request revisado antes do
-merge.
-
 1. API REST em camadas: controller, service, repository
 2. Spring Data JPA e migrações com Flyway
 3. CRUD de eventos e setores; listagem de assentos disponíveis
@@ -82,7 +77,7 @@ Pronto quando: cada mecanismo é demonstrado por testes.
 3. Mensageria: evento "ingresso emitido" com RabbitMQ
 4. GitHub Actions rodando os testes
 5. Logs estruturados e Spring Actuator (health e métricas)
-6. README como estudo de caso, usando os registros de `docs/decisoes/`
+6. README com visão geral da arquitetura e das decisões
 
 Pronto quando: o projeto está publicado e documentado.
 
