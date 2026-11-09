@@ -1,6 +1,6 @@
 # 0001. Prazo de reembolso baseado no art. 49 do CDC
 
-- **Status:** Proposta
+- **Status:** Aceita
 - **Data:** 2026-11-06
 - **Fase do plano:** Fase 4, tema 4 (cancelamento com reembolso)
 
