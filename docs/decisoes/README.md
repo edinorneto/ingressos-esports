@@ -18,5 +18,5 @@ memória. O README final (Fase 5) usa estes registros como estudo de caso.
 ## Índice
 | Nº | Decisão | Status |
 |----|---------|--------|
-| [0001](0001-prazo-de-reembolso.md) | Prazo de reembolso baseado no art. 49 do CDC | Proposta |
+| [0001](0001-prazo-de-reembolso.md) | Prazo de reembolso baseado no art. 49 do CDC | Aceita |
 | [0002](0002-cota-meia-entrada.md) | Cota de meia-entrada controlada pelo Evento | Aceita |

@@ -33,6 +33,6 @@ vendidos, então é quem responde "ainda cabe meia?".
 É a classe que tem a informação necessária, então a regra fica num lugar só
 e fácil de testar.
 
-Fica para a Fase 4: duas compras de meia ao mesmo tempo podem ler "399" e
-vender a 400ª e a 401ª juntas. Em memória isso não aparece; com banco e
+Fica para a Fase 4: num evento com cota de 400, duas compras de meia ao
+mesmo tempo podem ler "399 vendidas" e as duas passarem, fechando em 401. Em memória isso não aparece; com banco e
 várias requisições, sim.
