@@ -5,7 +5,7 @@ Plataforma de venda de ingressos para eventos de e-sports.
 Regra central: **um assento só pode ser vendido uma vez.**
 
 ## Estado atual
-Fase 1: Java puro, em memória. Spring Boot entra na Fase 3.
+Domínio em Java puro, com dados em memória. A API com Spring Boot vem depois.
 
 ## Como rodar
 Requisitos: JDK 21 e Maven (ou o Maven embutido do IntelliJ).
@@ -21,3 +21,6 @@ src/main/java/br/com/ingressos/          código da aplicação
 src/main/java/br/com/ingressos/dominio/  Evento, Setor, Assento, Reserva, Ingresso
 src/test/java/br/com/ingressos/          testes (JUnit 5)
 ```
+
+## Roadmap
+Regras de negócio e próximos passos em [docs/ROADMAP.md](docs/ROADMAP.md).
