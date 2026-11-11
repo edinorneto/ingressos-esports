@@ -17,19 +17,17 @@ public class Assento {
         return codigo;
     }
 
-    public boolean reservar() {
-        if (status == StatusAssento.DISPONIVEL) {
-            status = StatusAssento.RESERVADO;
-            return true;
+    public void reservar() {
+        if (status != StatusAssento.DISPONIVEL) {
+            throw new AssentoIndisponivelException(codigo, status);
         }
-        return false;
+        status = StatusAssento.RESERVADO;
     }
 
-    public boolean vender() {
-        if (status == StatusAssento.RESERVADO) {
-            status = StatusAssento.VENDIDO;
-            return true;
+    public void vender() {
+        if (status != StatusAssento.RESERVADO) {
+            throw new AssentoIndisponivelException(codigo, status);
         }
-        return false;
+        status = StatusAssento.VENDIDO;
     }
 }
