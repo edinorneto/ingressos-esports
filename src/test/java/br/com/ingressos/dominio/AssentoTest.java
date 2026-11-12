@@ -3,6 +3,9 @@ package br.com.ingressos.dominio;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AssentoTest {
@@ -50,5 +53,43 @@ class AssentoTest {
         assento.reservar();
         assento.vender();
         assertThrows(AssentoIndisponivelException.class, () -> assento.vender());
+    }
+
+    @Test
+    void assentosComMesmoCodigoSaoIguais() {
+        Assento outro = new Assento("A12");
+        assertEquals(assento, outro);
+    }
+
+    @Test
+    void assentosComCodigosDiferentesNaoSaoIguais() {
+        Assento outro = new Assento("B7");
+        assertNotEquals(assento, outro);
+    }
+
+    @Test
+    void assentoReservadoContinuaIgualAoDisponivel() {
+        Assento outro = new Assento("A12");
+        outro.reservar();
+        assertEquals(assento, outro);
+    }
+
+    @Test
+    void assentosIguaisTemMesmoHashCode() {
+        Assento outro = new Assento("A12");
+        assertEquals(assento.hashCode(), outro.hashCode());
+    }
+
+    @Test
+    void assentoNaoEIgualANull() {
+        assertNotEquals(assento, null);
+    }
+
+    @Test
+    void hashSetNaoGuardaAssentoDuplicado() {
+        Set<Assento> vendidos = new HashSet<>();
+        vendidos.add(assento);
+        vendidos.add(new Assento("A12"));
+        assertEquals(1, vendidos.size());
     }
 }
