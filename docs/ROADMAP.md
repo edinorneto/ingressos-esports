@@ -15,7 +15,7 @@
 ### 1. Domínio em memória
 - [x] Tipos de ingresso: inteira, meia e VIP
 - [ ] Estados do assento: disponível, reservado, vendido
-- [ ] Eventos, setores e assentos
+- [x] Eventos, setores e assentos
 - [ ] Reserva de assento, sem venda duplicada
 - [ ] Cota de meia-entrada
 - [ ] Testes das regras de reserva e venda
