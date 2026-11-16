@@ -5,7 +5,9 @@ Plataforma de venda de ingressos para eventos de e-sports.
 Regra central: **um assento só pode ser vendido uma vez.**
 
 ## Estado atual
-Domínio em Java puro, com dados em memória. A API com Spring Boot vem depois.
+Domínio em Java puro, com dados em memória: tipos de ingresso, estados do
+assento, setores e eventos. O próximo passo é a reserva de assentos. A API com
+Spring Boot vem depois.
 
 ## Como rodar
 Requisitos: JDK 21 e Maven (ou o Maven embutido do IntelliJ).
@@ -18,7 +20,7 @@ mvn package     # compila e gera o .jar em target/
 ## Estrutura
 ```
 src/main/java/br/com/ingressos/          código da aplicação
-src/main/java/br/com/ingressos/dominio/  Evento, Setor, Assento, Reserva, Ingresso
+src/main/java/br/com/ingressos/dominio/  Evento, Setor, Assento, Ingresso
 src/test/java/br/com/ingressos/          testes (JUnit 5)
 ```
 
