@@ -1,4 +1,4 @@
 /**
- * Domínio da plataforma: Evento, Setor, Assento, Reserva, Ingresso.
+ * Domínio da plataforma: Evento, Setor, Assento e Ingresso.
  */
 package br.com.ingressos.dominio;
