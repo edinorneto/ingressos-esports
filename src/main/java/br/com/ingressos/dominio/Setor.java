@@ -9,7 +9,7 @@ public class Setor {
 
     public Setor(String nome) {
         if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("Nome do setor é obrigatório");
+            throw new IllegalArgumentException("Nome do setor é obrigatório.");
         }
         this.nome = nome;
     }
@@ -21,7 +21,7 @@ public class Setor {
     public void adicionarAssento(Assento assento) {
         boolean entrou = assentos.add(assento);
         if (!entrou) {
-            throw new IllegalArgumentException("Assento " + assento.getCodigo() + " já existe no setor " + nome);
+            throw new IllegalArgumentException("Assento " + assento.getCodigo() + " já existe no setor " + nome + ".");
         }
     }
 

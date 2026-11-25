@@ -6,6 +6,9 @@ public class IngressoMeia extends Ingresso {
 
     public IngressoMeia(String codigo, String nomeEvento, String setor, double precoBase, String documento) {
         super(codigo, nomeEvento, setor, precoBase);
+        if (documento == null || documento.isBlank()) {
+            throw new IllegalArgumentException("Documento da meia-entrada é obrigatório.");
+        }
         this.documento = documento;
     }
 
