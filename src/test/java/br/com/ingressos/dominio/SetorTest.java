@@ -7,6 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class SetorTest {
 
     @Test
+    void criarSetorComCampoVazioOuNuloLancaErro() {
+        assertThrows(IllegalArgumentException.class, () -> new Setor(null));
+        assertThrows(IllegalArgumentException.class, () -> new Setor(""));
+        assertThrows(IllegalArgumentException.class, () -> new Setor(" "));
+    }
+
+    @Test
     void adicionarAssentoRepetidoLancaErro() {
         Setor pista = new Setor("Pista");
         pista.adicionarAssento(new Assento("A1", "Pista"));
