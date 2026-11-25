@@ -9,7 +9,7 @@ public class Evento {
 
     public Evento(String nome) {
         if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("Nome do evento é obrigatório");
+            throw new IllegalArgumentException("Nome do evento é obrigatório.");
         }
         this.nome = nome;
     }
@@ -20,10 +20,10 @@ public class Evento {
 
     public void adicionarSetor(Setor setor) {
         if (setor == null) {
-            throw new IllegalArgumentException("Setor é obrigatório");
+            throw new IllegalArgumentException("Setor é obrigatório.");
         }
         if (setores.containsKey(setor.getNome())) {
-            throw new IllegalArgumentException("Setor " + setor.getNome() + " já existe no evento " + nome);
+            throw new IllegalArgumentException("Setor " + setor.getNome() + " já existe no evento " + nome + ".");
         }
         setores.put(setor.getNome(), setor);
     }
