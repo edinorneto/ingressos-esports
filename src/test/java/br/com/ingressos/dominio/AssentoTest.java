@@ -14,7 +14,7 @@ class AssentoTest {
 
     @BeforeEach
     void criarAssento() {
-        assento = new Assento("A12");
+        assento = new Assento("A12", "Pista");
     }
 
     @Test
@@ -57,26 +57,32 @@ class AssentoTest {
 
     @Test
     void assentosComMesmoCodigoSaoIguais() {
-        Assento outro = new Assento("A12");
+        Assento outro = new Assento("A12", "Pista");
         assertEquals(assento, outro);
     }
 
     @Test
     void assentosComCodigosDiferentesNaoSaoIguais() {
-        Assento outro = new Assento("B7");
+        Assento outro = new Assento("B7", "Pista");
+        assertNotEquals(assento, outro);
+    }
+
+    @Test
+    void assentosComSetoresDiferentesNaoSaoIguais() {
+        Assento outro = new Assento("A12", "VIP");
         assertNotEquals(assento, outro);
     }
 
     @Test
     void assentoReservadoContinuaIgualAoDisponivel() {
-        Assento outro = new Assento("A12");
+        Assento outro = new Assento("A12", "Pista");
         outro.reservar();
         assertEquals(assento, outro);
     }
 
     @Test
     void assentosIguaisTemMesmoHashCode() {
-        Assento outro = new Assento("A12");
+        Assento outro = new Assento("A12", "Pista");
         assertEquals(assento.hashCode(), outro.hashCode());
     }
 
@@ -89,7 +95,7 @@ class AssentoTest {
     void hashSetNaoGuardaAssentoDuplicado() {
         Set<Assento> vendidos = new HashSet<>();
         vendidos.add(assento);
-        vendidos.add(new Assento("A12"));
+        vendidos.add(new Assento("A12", "Pista"));
         assertEquals(1, vendidos.size());
     }
 }
