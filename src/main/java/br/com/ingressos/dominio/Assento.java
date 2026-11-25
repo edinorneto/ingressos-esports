@@ -8,6 +8,12 @@ public class Assento {
     private String setor;
 
     public Assento(String codigo, String setor) {
+        if (codigo == null || codigo.isBlank()) {
+            throw new IllegalArgumentException("Código do assento é obrigatório.");
+        }
+        if (setor == null || setor.isBlank()) {
+            throw new IllegalArgumentException("Setor do assento é obrigatório.");
+        }
         this.status = StatusAssento.DISPONIVEL;
         this.codigo = codigo;
         this.setor = setor;
