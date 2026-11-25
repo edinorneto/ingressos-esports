@@ -18,6 +18,14 @@ class AssentoTest {
     }
 
     @Test
+    void criarAssentoComCampoVazioOuNuloLancaErro() {
+        assertThrows(IllegalArgumentException.class, () -> new Assento(null, "Pista"));
+        assertThrows(IllegalArgumentException.class, () -> new Assento("A1", null));
+        assertThrows(IllegalArgumentException.class, () -> new Assento("", "Pista"));
+        assertThrows(IllegalArgumentException.class, () -> new Assento("A1", " "));
+    }
+
+    @Test
     void reservarAssentoDisponivelMudaParaReservado() {
         assento.reservar();
         assertEquals(StatusAssento.RESERVADO, assento.getStatus());
@@ -31,25 +39,25 @@ class AssentoTest {
     }
 
     @Test
-    void reservarUmAssentoReservadoErro() {
+    void reservarAssentoReservadoLancaErro() {
         assento.reservar();
         assertThrows(AssentoIndisponivelException.class, () -> assento.reservar());
     }
 
     @Test
-    void venderUmAssentoDisponivelErro() {
+    void venderAssentoDisponivelLancaErro() {
         assertThrows(AssentoIndisponivelException.class, () -> assento.vender());
     }
 
     @Test
-    void reservarUmAssentoVendidoErro() {
+    void reservarAssentoVendidoLancaErro() {
         assento.reservar();
         assento.vender();
         assertThrows(AssentoIndisponivelException.class, () -> assento.reservar());
     }
 
     @Test
-    void venderUmAssentoVendidoErro() {
+    void venderAssentoVendidoLancaErro() {
         assento.reservar();
         assento.vender();
         assertThrows(AssentoIndisponivelException.class, () -> assento.vender());
