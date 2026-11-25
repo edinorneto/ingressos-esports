@@ -8,6 +8,9 @@ public class Evento {
     private final Map<String, Setor> setores = new HashMap<>();
 
     public Evento(String nome) {
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome do evento é obrigatório");
+        }
         this.nome = nome;
     }
 
@@ -16,6 +19,9 @@ public class Evento {
     }
 
     public void adicionarSetor(Setor setor) {
+        if (setor == null) {
+            throw new IllegalArgumentException("Setor é obrigatório");
+        }
         if (setores.containsKey(setor.getNome())) {
             throw new IllegalArgumentException("Setor " + setor.getNome() + " já existe no evento " + nome);
         }

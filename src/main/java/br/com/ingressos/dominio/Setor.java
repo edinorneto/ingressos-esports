@@ -8,6 +8,9 @@ public class Setor {
     private final Set<Assento> assentos = new HashSet<>();
 
     public Setor(String nome) {
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("Nome do setor é obrigatório");
+        }
         this.nome = nome;
     }
 

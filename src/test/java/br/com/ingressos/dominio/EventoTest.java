@@ -7,6 +7,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class EventoTest {
 
     @Test
+    void criarEventoComCampoVazioOuNuloLancaErro() {
+        assertThrows(IllegalArgumentException.class, () -> new Evento(null));
+        assertThrows(IllegalArgumentException.class, () -> new Evento(""));
+        assertThrows(IllegalArgumentException.class, () -> new Evento(" "));
+    }
+
+    @Test
+    void adicionarSetorNuloLancaErro() {
+        Evento finalCblol = new Evento("Final CBLOL");
+
+        assertThrows(IllegalArgumentException.class, () -> finalCblol.adicionarSetor(null));
+    }
+
+    @Test
     void adicionarSetorComNomeRepetidoLancaErro() {
         Evento finalCblol = new Evento("Final CBLOL");
         finalCblol.adicionarSetor(new Setor("VIP"));
