@@ -5,10 +5,16 @@ import java.util.Objects;
 public class Assento {
     private StatusAssento status;
     private String codigo;
+    private String setor;
 
-    public Assento(String codigo) {
+    public Assento(String codigo, String setor) {
         this.status = StatusAssento.DISPONIVEL;
         this.codigo = codigo;
+        this.setor = setor;
+    }
+
+    public String getSetor() {
+        return setor;
     }
 
     public StatusAssento getStatus() {
@@ -36,11 +42,11 @@ public class Assento {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Assento outro)) return false;
-        return codigo.equals(outro.codigo);
+        return codigo.equals(outro.codigo) && setor.equals(outro.setor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codigo);
+        return Objects.hash(codigo, setor);
     }
 }
