@@ -29,6 +29,7 @@ public class Evento {
     }
 
     public Setor buscarSetor(String nomeDoSetor) {
+        // buraco 4: guardar o resultado do get numa variável; se vier null, lançar SetorNaoEncontradoException
         return setores.get(nomeDoSetor);
     }
 }

@@ -38,4 +38,12 @@ class EventoTest {
 
         assertEquals("Pista", encontrado.getNome());
     }
+
+    @Test
+    void buscarSetorInexistenteLancaErro() {
+        Evento finalCblol = new Evento("Final CBLOL");
+        finalCblol.adicionarSetor(new Setor("Pista"));
+
+        // buraco 3: garantir que buscarSetor("Camarote") lança SetorNaoEncontradoException
+    }
 }
